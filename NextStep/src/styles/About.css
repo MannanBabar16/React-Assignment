@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #3a3a3a;
+  background-color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: white;
+  border-bottom: 1px solid #cacaca;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #3a3a3a;
+  font-size: 15px;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #c8ff00;
+}
+
+.logout-btn {
+  background-color: #c8ff00;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #b3e600;
+}
+
+.about-section {
+  padding: 80px 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+  border-bottom: 1px solid #eee;
+}
+
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.about-text h1 {
+  font-size: 32px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.about-text p {
+  font-size: 15px;
+  color: #3a3a3a;
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.about-image {
+  flex: 1;
+  text-align: right;
+  min-width: 300px;
+}
+
+.about-image img {
+  width: 80%;
+  border-radius: 20px;
+  border: 1px solid #cacaca;
+}
+
+/* === MISSION SECTION === */
+.mission-section {
+  text-align: center;
+  padding: 80px 15%;
+  background-color: white;
+}
+
+.mission-section h2 {
+  font-size: 24px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.mission-section p {
+  font-size: 15px;
+  color: #3a3a3a;
+  line-height: 1.6;
+}
+
+.footer {
+  background-color: white;
+  border-top: 1px solid #cacaca;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 13px;
+  color: #3a3a3a;
+}
+
+
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}

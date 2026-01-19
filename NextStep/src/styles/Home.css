@@ -1,0 +1,187 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #3a3a3a;
+  background-color: white;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  background-color: white;
+  border-bottom: 1px solid #cacaca;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #3a3a3a;
+  font-size: 15px;
+}
+
+.nav-links a:hover {
+  color: #c8ff00;
+}
+
+.logout-btn {
+  background-color: #c8ff00;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #b3e600;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 60px 80px;
+  background-color: #f9f9f9;
+}
+
+.hero-text {
+  width: 50%;
+}
+
+.hero-text h1 {
+  font-size: 32px;
+  color: black;
+  margin-bottom: 15px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  color: #3a3a3a;
+  margin-bottom: 25px;
+}
+
+.explore-btn {
+  background-color: #c8ff00;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.explore-btn:hover {
+  background-color: #b3e600;
+}
+
+.hero-image {
+  width: 45%;
+  text-align: right;
+}
+
+.hero-image img {
+  width: 80%;
+  border-radius: 20px;
+}
+
+.products-section {
+  padding: 60px 80px;
+  background-color: white;
+}
+
+.products-section h2 {
+  color: black;
+  font-size: 24px;
+  margin-bottom: 30px;
+  border-left: 5px solid #c8ff00;
+  padding-left: 10px;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  margin-bottom: 60px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #cacaca;
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 10px;
+}
+
+.card h3 {
+  font-size: 16px;
+  color: black;
+  margin: 5px 0;
+}
+
+.card p {
+  font-size: 13px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.card button {
+  background-color: #c8ff00;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.card button:hover {
+  background-color: #b3e600;
+}
+
+.footer {
+  background-color: white;
+  border-top: 1px solid #cacaca;
+  text-align: center;
+  padding: 15px 0;
+  font-size: 13px;
+  color: #3a3a3a;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+}
