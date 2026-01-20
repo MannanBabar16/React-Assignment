@@ -1,43 +1,40 @@
+import "../styles/Home.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import ProductCard from "../components/ProductCard";
 import { useNavigate } from "react-router-dom";
 
 function Products() {
   const navigate = useNavigate();
 
-  const openProduct = (name, image, category) => {
-    localStorage.setItem(
-      "selectedProduct",
-      JSON.stringify({ name, image, category, desc: `Details for ${name}` })
-    );
-    navigate("/product-detail");
-  };
-
   const products = [
-    { name: "Modern Resume", image: "/Images/resume.jpg", category: "Resume" },
-    { name: "Creative Resume", image: "/Images/resume.jpg", category: "Resume" },
-    { name: "Simple Resume", image: "/Images/resume.jpg", category: "Resume" },
-    { name: "Professional Resume", image: "/Images/resume.jpg", category: "Resume" },
+    { name: "Modern Resume", image: "/Images/resume.jpg", desc: "Clean and professional layout", category: "Resume" },
+    { name: "Creative Resume", image: "/Images/resume.jpg", desc: "Stand out with a creative design", category: "Resume" },
+    { name: "Simple Resume", image: "/Images/resume.jpg", desc: "Minimalist clean design", category: "Resume" },
+    { name: "Professional Resume", image: "/Images/resume.jpg", desc: "Elegant and professional layout", category: "Resume" },
   ];
 
   return (
     <>
       <Navbar />
+
       <section className="products-section fade-in">
-        <h2>Resumes</h2>
+        <h2>All Templates</h2>
         <div className="product-grid">
-          {products.map((item, i) => (
-            <div className="card shadow-lg" key={i}>
-              <img src={item.image} alt={item.name} />
-              <h3>{item.name}</h3>
-              <p>Category: {item.category}</p>
-              <button className="btn btn-warning fw-bold" onClick={() => openProduct(item.name, item.image, item.category)}>
-                Get Started
-              </button>
-            </div>
+          {products.map((p, idx) => (
+            <ProductCard
+              key={idx}
+              product={p}
+              isWishlist={false}
+              onView={() => {
+                localStorage.setItem("selectedProduct", JSON.stringify(p));
+                navigate("/product-detail");
+              }}
+            />
           ))}
         </div>
       </section>
+
       <Footer />
     </>
   );

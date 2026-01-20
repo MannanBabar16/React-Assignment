@@ -1,27 +1,36 @@
-import "../styles/Login.css"
-import { useNavigate } from "react-router-dom"
+import "../styles/Login.css";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   return (
-    <div className="fade-in">
-      <div className="logo">
-        <h2>NextStep</h2>
-      </div>
+    <div className="login-page fade-in">
+      <div className="login-container">
+        <h1 className="login-logo">NextStep</h1>
 
-      <div className="login-box shadow-lg">
-        <h2>Login</h2>
+        <form className="login-form" onSubmit={(e) => { e.preventDefault(); navigate("/home"); }}>
+          <div className="input-group">
+            <input type="email" id="email" required />
+            <label htmlFor="email">Email</label>
+          </div>
 
-        <input className="form-control mb-3" placeholder="Email" />
-        <input className="form-control mb-3" placeholder="Password" type="password" />
+          <div className="input-group">
+            <input type="password" id="password" required />
+            <label htmlFor="password">Password</label>
+          </div>
 
-        <button className="login-btn btn btn-warning w-100" onClick={() => navigate("/home")}>
-          Login
-        </button>
+          <button type="submit" className="login-btn">
+            Login
+          </button>
+        </form>
+
+        <p className="signup-text">
+          Don't have an account? <span className="link" onClick={() => alert("Sign up clicked!")}>Sign Up</span>
+        </p>
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;

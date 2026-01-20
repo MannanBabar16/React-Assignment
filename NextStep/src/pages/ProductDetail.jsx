@@ -1,50 +1,74 @@
-import "../styles/Home.css"
-import Navbar from "../components/Navbar"
-import Footer from "../components/Footer"
+import "../styles/ProductDetail.css";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
+import { toast } from "react-hot-toast";
+import { useEffect, useState } from "react";
 
 function ProductDetail() {
-  const product = JSON.parse(localStorage.getItem("selectedProduct"))
+  const [product, setProduct] = useState(null);
+  const [inWishlist, setInWishlist] = useState(false);
+
+  useEffect(() => {
+    const stored = JSON.parse(localStorage.getItem("selectedProduct"));
+    if (stored) setProduct(stored);
+
+    // Check if already in wishlist
+    const list = JSON.parse(localStorage.getItem("wishlist")) || [];
+    if (stored && list.find(p => p.name === stored.name)) {
+      setInWishlist(true);
+    }
+  }, []);
+
+  if (!product) return null;
 
   const addWishlist = () => {
-    const list = JSON.parse(localStorage.getItem("wishlist")) || []
-    list.push(product)
-    localStorage.setItem("wishlist", JSON.stringify(list))
-    alert("Added to Wishlist")
-  }
-
-  if (!product) return null
+    const list = JSON.parse(localStorage.getItem("wishlist")) || [];
+    if (!list.find(p => p.name === product.name)) {
+      list.push(product);
+      localStorage.setItem("wishlist", JSON.stringify(list));
+      toast.success("Added to Wishlist ✅");
+      setInWishlist(true);
+      setTimeout(() => window.location.reload(), 500); // optional for navbar counter
+    } else {
+      toast.error("Product already in Wishlist 👀");
+    }
+  };
 
   return (
     <>
       <Navbar />
+      <section className="product-detail-container fade-in">
+        <div className="product-image">
+          <img src={product.image} alt={product.name} />
 
-      <section className="product-detail fade-in">
-        <div className="container mt-5 mb-5">
-          <div className="row align-items-center">
-            <div className="col-md-6 text-center">
-              <img src={product.image} className="img-fluid rounded-4 shadow-lg" />
-              <div className="mt-3">
-                <button className="btn btn-outline-danger" onClick={addWishlist}>
-                  Add to Wishlist
-                </button>
-              </div>
-            </div>
+          {inWishlist ? (
+            <button className="wishlist-btn" style={{ backgroundColor: "#e3ff7eff", color: "#313131", cursor: "default" }}>
+              ✅ Added to Wishlist
+            </button>
+          ) : (
+            <button className="wishlist-btn" onClick={addWishlist}>
+              ❤️ Add to Wishlist
+            </button>
+          )}
+        </div>
 
-            <div className="col-md-6">
-              <h2>{product.name}</h2>
-              <p>{product.desc}</p>
-              <div className="mt-4">
-                <button className="btn btn-warning fw-bold me-2">Edit</button>
-                <button className="btn btn-secondary fw-bold">Live Preview</button>
-              </div>
-            </div>
+        <div className="product-info">
+          <h1>{product.name}</h1>
+          <p>{product.desc}</p>
+
+          <div className="product-actions">
+            <button className="primary-btn" onClick={() => toast("Edit Clicked")}>
+              Edit
+            </button>
+            <button className="secondary-btn" onClick={() => toast("Live Preview Clicked")}>
+              Live Preview
+            </button>
           </div>
         </div>
       </section>
-
       <Footer />
     </>
-  )
+  );
 }
 
-export default ProductDetail
+export default ProductDetail;

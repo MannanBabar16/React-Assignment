@@ -1,3 +1,4 @@
+import "../styles/About.css";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
@@ -6,19 +7,41 @@ function About() {
     <>
       <Navbar />
 
-      <div style={{ padding: "40px", minHeight: "70vh" }}>
-        <h1>About Us</h1>
-        <p style={{ marginTop: "15px", fontSize: "18px" }}>
-          NextStep is a React-based web application created as part of a Web
-          Development assignment. This project demonstrates the use of React
-          components, routing, and modern frontend practices.
-        </p>
+      {/* ABOUT HERO SECTION */}
+      <section className="about-section fade-in">
+        <div className="about-container">
+          <div className="about-text">
+            <h1>About NextStep</h1>
+            <p>
+              NextStep is a React-based web application built as part of a Web Development assignment. 
+              It showcases the use of React components, routing, and modern frontend practices.
+            </p>
+            <p>
+              Our mission is to provide a clean, responsive, and user-friendly interface 
+              to create professional resumes and personal portfolios effortlessly.
+            </p>
+          </div>
+         
+        </div>
+      </section>
 
-        <p style={{ marginTop: "10px", fontSize: "18px" }}>
-          The goal of this project is to build a clean, responsive, and
-          user-friendly interface using React and Vite.
+      {/* MISSION SECTION */}
+      <section className="mission-section fade-in">
+        <h2>Our Mission</h2>
+        <p>
+          To empower users with simple yet effective tools to build resumes and portfolios 
+          that stand out in the modern job market. We focus on clarity, responsiveness, 
+          and a delightful user experience.
+
+          To empower users with simple yet effective tools to build resumes and portfolios 
+          that stand out in the modern job market. We focus on clarity, responsiveness, 
+          and a delightful user experience.
+
+          To empower users with simple yet effective tools to build resumes and portfolios 
+          that stand out in the modern job market. We focus on clarity, responsiveness, 
+          and a delightful user experience.
         </p>
-      </div>
+      </section>
 
       <Footer />
     </>

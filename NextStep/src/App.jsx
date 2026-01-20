@@ -5,6 +5,10 @@ import Products from "./pages/Products";
 import ProductDetail from "./pages/ProductDetail";
 import Wishlist from "./pages/Wishlist";
 import Login from "./pages/Login";
+import Prayer from "./pages/Prayer";
+
+
+
 
 function App() {
   return (
@@ -16,6 +20,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/product-detail" element={<ProductDetail />} />
         <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/prayer" element={<Prayer />} />
       </Routes>
     </Router>
   );
