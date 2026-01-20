@@ -67,6 +67,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   text-decoration: none;
+  color: #313131;
 }
 
 .logout-btn:hover {
@@ -378,5 +379,68 @@ body {
     margin: 10px 0 0 0;
   }
 }
+
+/* Hamburger menu styles */
+.hamburger {
+  display: none; /* hidden on desktop */
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #3a3a3a;
+  transition: all 0.3s ease;
+}
+
+.bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile nav-links */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: -100%;
+    background-color: #fff;
+    width: 200px;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+
+  .nav-links.active {
+    right: 20px; /* slide in menu */
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .wishlist-count {
+    top: -8px;
+    right: -8px;
+  }
+}
+
 
 

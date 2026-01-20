@@ -22,17 +22,17 @@ function ProductDetail() {
   if (!product) return null;
 
   const addWishlist = () => {
-    const list = JSON.parse(localStorage.getItem("wishlist")) || [];
-    if (!list.find(p => p.name === product.name)) {
-      list.push(product);
-      localStorage.setItem("wishlist", JSON.stringify(list));
-      toast.success("Added to Wishlist ✅");
-      setInWishlist(true);
-      setTimeout(() => window.location.reload(), 500); // optional for navbar counter
-    } else {
-      toast.error("Product already in Wishlist 👀");
-    }
-  };
+  const list = JSON.parse(localStorage.getItem("wishlist")) || [];
+  if (!list.find(p => p.name === product.name)) {
+    list.push(product);
+    localStorage.setItem("wishlist", JSON.stringify(list));
+    toast.success("Added to Wishlist ✅");
+    setTimeout(() => window.location.reload(), 300); // page refresh
+  } else {
+    toast.error("Product already in Wishlist 👀");
+  }
+};
+
 
   return (
     <>

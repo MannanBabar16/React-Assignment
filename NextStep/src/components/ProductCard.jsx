@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 function ProductCard({ product, isWishlist, onView }) {
   const [inWishlist, setInWishlist] = useState(false);
 
-  // Check if the product is already in wishlist
   useEffect(() => {
     const list = JSON.parse(localStorage.getItem("wishlist")) || [];
     setInWishlist(list.some(p => p.name === product.name));
@@ -17,8 +16,7 @@ function ProductCard({ product, isWishlist, onView }) {
       list.push(product);
       localStorage.setItem("wishlist", JSON.stringify(list));
       toast.success("Added to Wishlist ✅");
-      setInWishlist(true);
-      setTimeout(() => window.location.reload(), 500);
+      setTimeout(() => window.location.reload(), 300); // page refresh
     } else {
       toast("Already in Wishlist 👀");
     }
@@ -29,8 +27,7 @@ function ProductCard({ product, isWishlist, onView }) {
     const updated = list.filter(p => p.name !== product.name);
     localStorage.setItem("wishlist", JSON.stringify(updated));
     toast.error("Removed from Wishlist 🗑️");
-    setInWishlist(false);
-    setTimeout(() => window.location.reload(), 500);
+    setTimeout(() => window.location.reload(), 300); // page refresh
   };
 
   return (
@@ -43,19 +40,25 @@ function ProductCard({ product, isWishlist, onView }) {
         <button onClick={onView}>View Details</button>
 
         {isWishlist ? (
-          <button 
-            onClick={removeFromWishlist} 
-            style={{ backgroundColor: "#ffb77b7", color: "#313131" }}
+          <button
+            onClick={removeFromWishlist}
+            style={{ backgroundColor: "#ffb7b7", color: "#313131" }}
           >
             Remove from Wishlist
           </button>
         ) : inWishlist ? (
-          <button style={{ backgroundColor: "#eaff9eff", color: "#313131", cursor: "default" }}>
+          <button
+            style={{
+              backgroundColor: "#eaff9eff",
+              color: "#313131",
+              cursor: "default"
+            }}
+          >
             ✅ Added to Wishlist
           </button>
         ) : (
-          <button 
-            onClick={addToWishlist} 
+          <button
+            onClick={addToWishlist}
             style={{ backgroundColor: "#ffb7b7", color: "#313131" }}
           >
             ❤️ Add to Wishlist
